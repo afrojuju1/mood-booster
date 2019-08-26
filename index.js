@@ -12,7 +12,6 @@ const postToChannel = (say) => {
   const data = {
     text: 'Happy Monday Everyone!! https://gph.is/2MvtCCQ',
     channel: 'temp_slack_bot', //'#appdev_developer',
-    // token: process.env.SLACK_BOT_TOKEN,
   };
   
   const config = {
@@ -25,32 +24,17 @@ const postToChannel = (say) => {
   const url = 'https://slack.com/api/chat.postMessage';
   axios.post(url, data, config)
   .then((response) => {
-    say('Post successful ');
+    say('Post successful');
   })
   .catch(() => {
     say('whoops');
   })
 }
 
+// todo: add other events to this list
 app.event('app_home_opened', ({ event, say }) => {  
   say('about to post to channel')
   postToChannel(say);
-  // Look up the user from DB
-//   let user = store.getUser(event.user);
-  
-//   if(!user) {
-//     user = {
-//       user: event.user,
-//       channel: event.channel
-//     };
-//     store.addUser(user);
-    
-//     say(`Happy Monday <@${event.user}>!!!!!! https://gph.is/2MvtCCQ`);
-//   } else {
-//     say('Sup! https://gph.is/2MvtCCQ');
-//   }
-  
-  // postToChannel();
 });
 
 
