@@ -38,7 +38,7 @@ const blastHappyMonday = () => {
 
   const data = {
     text: `Happy Monday ${phrase}!! ${gif}`,
-    channel: 'temp_slack_bot',
+    channel: 'monday',
   };
   
   const config = {
