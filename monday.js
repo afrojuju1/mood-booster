@@ -1,3 +1,4 @@
+require('dotenv').config();
 const axios = require('axios');
 
 const gifs = [
@@ -49,8 +50,13 @@ const blastHappyMonday = () => {
   
   const url = 'https://slack.com/api/chat.postMessage';
   axios.post(url, data, config)
+      .then(() => {
+        console.log('Success. Message posted');
+      })
+      .catch(() => {
+        console.error('Failed to post message :(');
+      })
 }
 
 // send the message
 blastHappyMonday();
-
