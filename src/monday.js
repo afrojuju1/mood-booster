@@ -1,4 +1,4 @@
-const { postToChannel } = require('./utils');
+const { postToChannel, isTodayMonday } = require('./utils');
 
 const gifs = [
   'https://gph.is/1Nz3ncN',
@@ -37,7 +37,9 @@ const blastHappyMonday = () => {
   const text = `Happy Monday ${phrase}!! ${gif}`;
   const channel = 'monday';
 
-  postToChannel(text, channel);
+  if (isTodayMonday()) {
+    postToChannel(text, channel);
+  }
 };
 
 blastHappyMonday();

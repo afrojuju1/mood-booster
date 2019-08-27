@@ -1,5 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
+const moment = require('moment');
 
 const postToChannel = (text, channel) => {
   const data = {
@@ -24,6 +25,11 @@ const postToChannel = (text, channel) => {
     })
 };
 
+const isTodayMonday = () => {
+  return moment().local().day() === 1;
+};
+
 module.exports = {
   postToChannel,
+  isTodayMonday,
 };
