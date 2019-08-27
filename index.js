@@ -33,14 +33,11 @@ const postToChannel = (say) => {
 
 // todo: add other events to this list
 app.event('app_home_opened', ({ event, say }) => {  
-  say('about to post to channel')
-  postToChannel(say);
+  say('Hello awesome person!!');
 });
 
-
-// Start your app
 (async () => {
   await app.start(process.env.PORT || 3000);
-  console.log('⚡️ Bolt app is running!');
+  console.log('Mood booster app is running!!');
 })();
 
