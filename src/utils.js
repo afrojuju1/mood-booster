@@ -24,12 +24,23 @@ const postToChannel = (text, channel) => {
       console.error('failed to post quote. ', error.response);
     })
 };
-
+/*
+ 1 - Monday
+ 5 - Friday
+ 6 - Saturday
+ 7 - Sunday
+ */
 const isTodayMonday = () => {
   return moment().local().day() === 1;
+};
+
+const isWeekDay = () => {
+  const intDay = moment().local().day();
+  return intDay >= 1 && intDay <= 5;
 };
 
 module.exports = {
   postToChannel,
   isTodayMonday,
+  isWeekDay,
 };
