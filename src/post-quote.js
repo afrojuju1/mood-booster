@@ -1,7 +1,12 @@
-const { postToChannel } = require('./utils');
+const { postToChannel, isWeekDay } = require('./utils');
 const { getQuoteOfTheDay } = require('./quotes');
 
 const postQuote = async () => {
+  if (!isWeekDay()) {
+    console.log('Not a weekday. Skipping post for today.');
+    return
+  }
+
   const quote = await getQuoteOfTheDay();
   const { quoteText, quoteAuthor } = quote;
   if (!quoteText) {
@@ -9,7 +14,7 @@ const postQuote = async () => {
     return
   }
 
-  const channel = 'temp_slack_bot';
+  const channel = 'monday';
   const text = `${quoteText}\n- ${quoteAuthor || 'Unknown'}`;
   postToChannel(text, channel);
 };

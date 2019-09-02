@@ -3,7 +3,9 @@ const { postToChannel, isTodayMonday } = require('./utils');
 const gifs = [
   'https://gph.is/1Nz3ncN',
   'https://gph.is/2MvtCCQ',
-  'https://gph.is/2qXxdj8'
+  'https://gph.is/2qXxdj8',
+  'http://gph.is/15RTH5O',
+  'https://gph.is/XMeVyX',
 ];
 
 const phrases = [
