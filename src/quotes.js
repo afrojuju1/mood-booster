@@ -23,11 +23,15 @@ const getQuoteOfTheDay = () => {
     },
   };
 
-  axios.get(url, config)
+  return axios.get(url, config)
     .then((response) => {
       const quotes = response.data.contents.quotes;
       console.log('response: ', quotes[0]);
-      return quotes[0];
+      const quote = quotes[0]
+      return {
+        quoteText: quote.quote,
+        quoteAuthor: quote.author,
+      }
     })
     .catch(() => {
       console.error('Failed to get quote');
